@@ -1,0 +1,130 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Header Section */
+header{
+    font-family: "Open Sans", sans-serif;
+    background-color: #191919;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 40px ;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header h1{
+    color: aliceblue;
+}
+span{
+    color: #FF8F03;
+}
+header nav ul {
+    list-style: none;
+    display : flex ;
+    gap: 17px;
+    margin: 0px;
+}
+header nav li a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+header ul li a:hover{
+    color: #191919;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 6px 12px;
+    transition: 0.3s;/* for a smooth move */
+}
+/* ---Hero Section---*/
+.hero{
+    height: 70vh;
+    background-color: #212020;
+    display: flex;
+    flex-direction: column; /* arrange the elements vertically (ترتيب عمودي للاسطر) */
+    justify-content: center;
+    align-items: center;
+}
+.hero h2{
+    color: aliceblue;
+    font-size: 70px;
+}
+.hero p{
+    color: aliceblue;
+    font-size: 25px;
+    margin-top: 20px;
+}
+.join_us{
+    color: aliceblue;
+    background-color: #F04A4A;
+    font-size: 20px;
+    margin-top: 20px;
+    border: 1px;
+    border-radius: 10px;
+    padding:20px 50px;
+    text-decoration: none;
+}
+.join_us:hover{
+    background-color: #BA3434;
+}
+.showcasing p{
+    font-size: 22px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+h2{
+    color: #E56950;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 18px;
+}
+.swimming{
+    background-color: white;
+    border : 1px ;
+    border-radius:25px;
+    box-shadow: 0 4px 10px #212020;
+    text-align: center;/* moving items in the center like img and p and h2*/
+    padding-top: 20px;
+    width: 350px;
+    margin: 15px;
+}
+.swimming h2{
+    padding-top: 15px;
+}
+.cardio{
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0px 4px 10px #212020;
+    width : 350px;
+    padding-top: 20px;
+    margin: 15px;
+    text-align: center;/* moving items in the center like img and p and h2*/
+}
+.weights{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px #212020;
+    width: 350px;
+    padding-top: 20px;
+    text-align: center;/* moving items in the center like img and p and h2*/
+    margin: 15px;
+}
+.showcasing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch; /* make the cards as the same height */
+    flex-wrap: wrap;/*in case the web is open in the phone*/
+    gap: 20px;                  
+    padding: 40px 10px;
+}

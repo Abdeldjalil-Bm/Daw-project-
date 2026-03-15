@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership</title>
+    <link rel="stylesheet" href="Pro.css">
+  </head>
+  <body>
+    <header>
+      <h1>Oxygen <span class="gym">Gym</span></h1>
+      <div class="member">
+        <nav>
+          <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="class.html">CLASSES</a></li>
+            <li><a href="#member">MEMBERSHIP</a></li>
+            <li><a href="trainer.html">TRAINERS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="cards">
+        <dl>
+          <dt>Bronze Plan</dt>
+          <dd>Monthly, includes access to the gym only</dd>
+          <dt>Silver Plan</dt>
+          <dd>Quarterly, includes gym access + group classes</dd>
+          <dt>Gold Plan</dt>
+          <dd>Annual, includes all benefits + personal consultation</dd>
+        </dl>
+      </section>
+      <section id="register">
+        <fieldset>
+          <legend>Enter Your Informations :</legend>
+          <form>
+            <div id="name">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" / required>
+            </div>
+            <div id="email">
+              <label for="email">Email</label>
+              <input id="email" id="email" name="email" required>
+            </div>
+            <div id="phone">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone"required>
+            </div>
+            <div id="date">
+              <label for="dof">Date Of Birth</label>
+              <input type="date" id="dof" name="dof" required>
+            </div>
+            <p>Choose Your Plane</p>
+            <div id="plan">
+              <input type="radio" id="bronze" name="plan" value="bronze" required>
+              <label for="bronze">Bronze Plan</label><br>
+              <input type="radio" id="silver" name="plan" value="silver" required>
+              <label for="silver">Silver Plan</label><br>
+              <input type="radio" name="plan" id="gold" value="gold" required>
+              <label for="gold">Gold Plan</label><br>
+              <input type="checkbox" name="terms" id="terms" required><br>
+              <label for="terms">I agree to the terms and conditions</label>
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </fieldset>
+      </section>
+      <section id="payment">
+        <h2>Payment Methodes</h2>
+        <p>We accept the following payment methods:</p>
+        <ul>
+          <li>Visa</li>
+          <li>MasterCard</li>
+          <li>PayPal</li>
+          <li>Cash</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

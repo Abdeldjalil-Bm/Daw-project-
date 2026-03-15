@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* أضفنا هذا لضمان دقة القياسات */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #292828;
+    height: 80px; /* طول مناسب للهيدر */
+    
+    /* التوسيط باستخدام Flexbox */
+    display: flex;
+    justify-content: center; /* توسيط العناصر أفقياً */
+    align-items: center;     /* توسيط العناصر عمودياً */
+    gap: 40px;               /* مسافة بين العنوان والقائمة */
+}
+
+header h1 {
+    color: aliceblue;
+    /* حذفنا الـ float لأنه يعيق التوسيط */
+}
+
+span.gym {
+    color: orange;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;  
+    gap: 15px;      
+    margin: 0;      /* حذفنا الـ margin لتجنب إزاحة العناصر عن المنتصف */
+}
+
+header nav ul li a {
+    color: aliceblue;
+    text-decoration: none; /* لإزالة الخط تحت الروابط */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #292828;
+    background: white;
+    border-radius: 10px;
+    padding: 6px 12px;
+    transition: 0.3s; /* نعومة في حركة الـ hover */
+}
