@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="gym1.avif">
     <title>Contact us</title>
     <link rel="stylesheet" href="Pro.css">
 </head>
@@ -22,31 +23,25 @@
         </div>
     </header>
     <main>
-        <section id="contact">
-            <div class="Contact_us">
-                <form>
-                    <div>    
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div>
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="3" required></textarea>
-                    </div>
-                    <button type="submit">Send</button>
-                </form>
-            </div>
+        <div class="title_contact">
+            <h2>Contact Us</h2>
+        </div>
+        <section class="contact_us">
+            <form>  
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write Your Message" required></textarea>
+            </form>
+        </section>
+        <section class="button">
+                    <p><a href="#">Send</a></p>
         </section>
         <section class="info">
-            <h3>Contact Information</h3>
+            <h2>Contact Information</h2>
             <address>
                 Oxygen Gym<br>
                 Constantine , Algeria<br>
@@ -64,8 +59,8 @@
              <!-- From share , click to embed map , copy the code html -->
              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102949.05830600405!2d6.5871247!3d36.259941100000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f17199218d07bb%3A0xc539806834356b16!2sOXYGEN%20GYM!5e0!3m2!1sen!2sdz!4v1773183532730!5m2!1sen!2sdz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
-        <section class="open hours">
-            <h3>Openning Hours</h3>
+        <section class="open_hours">
+            <h2>Openning Hours</h2>
             <table border="1">
                 <thead>
                     <tr>

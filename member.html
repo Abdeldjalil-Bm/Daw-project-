@@ -14,7 +14,7 @@
                 <ul>
                     <li><a href="home.html">HOME</a></li>
                     <li><a href="class.html">CLASSES</a></li>
-                    <li><a href="#membership">MEMBERSHIP</a></li>
+                    <li><a href="#member">MEMBERSHIP</a></li>
                     <li><a href="trainer.html">TRAINERS</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
@@ -85,41 +85,40 @@
             <form>
                 <fieldset>
                     <legend>Member Information</legend>
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
+                    <label for="name_l">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <div id="name_error"></div>
+                    <label for="email_l">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <div id="email_error"></div>
                     <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required>
-
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                    <div id="phone_error"></div>
                     <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" name="dob" required>
-
+                    <input type="date" id="dob" name="dob" placeholder="Date Of Birth" required>
+                    <div id="dobirth_error"></div>
                     <label>Gender:</label>
-                    <input type="radio" id="male" name="gender" value="male" required>
                     <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female" required>
+                    <input type="radio" id="male" name="gender" value="male">
                     <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <div id="radio_output"></div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Select Your Plan</legend>
-                    <input type="radio" id="bronze" name="plan" value="bronze" required>
                     <label for="bronze">Bronze</label>
-
-                    <input type="radio" id="silver" name="plan" value="silver">
+                    <input type="radio" id="bronze" name="plan" value="bronze" required>
                     <label for="silver">Silver</label>
-
-                    <input type="radio" id="gold" name="plan" value="gold">
+                    <input type="radio" id="silver" name="plan" value="silver">
                     <label for="gold">Gold</label>
+                    <input type="radio" id="gold" name="plan" value="gold">
+                    <div id="plan_output"></div>
                 </fieldset>
-
-                <input type="checkbox" id="terms" name="terms" required>
                 <label for="terms">I agree to the membership terms and conditions</label>
-
-                <input type="submit" value="Register">
+                <input type="checkbox" id="terms" name="terms" required><br>
+                <input type="submit" id="register" value="Register">
+                <div id="succ_register"></div>
             </form>
         </section>
 
@@ -129,23 +128,26 @@
             <form>
                 <fieldset>
                     <legend>Select Payment Method</legend>
-                    <input type="radio" id="visa" name="payment" value="visa">
                     <label for="visa">Credit Card</label>
-
-                    <input type="radio" id="mastercard" name="payment" value="mastercard">
+                    <input type="radio" id="visa" name="payment" value="visa">
+                    
                     <label for="mastercard">Debit Card</label>
-
-                    <input type="radio" id="paypal" name="payment" value="paypal">
+                    <input type="radio" id="mastercard" name="payment" value="mastercard">
                     <label for="paypal">PayPal</label>
+                    <input type="radio" id="paypal" name="payment" value="paypal">
                 </fieldset>
 
-                <input type="checkbox" id="payment_terms" name="payment_terms" required>
+                <input type="checkbox" id="payment_terms" name="payment_terms">
                 <label for="payment_terms">I agree to the payment terms and conditions</label>
-
+                <div id="terms_output"></div>
                 <input type="submit" value="Proceed to Payment">
+                
             </form>
         </section>
 
+
+        <script src="pro.js"></script>
+        <script src="jalil.js"></script>
     </main>
 </body>
 </html>
