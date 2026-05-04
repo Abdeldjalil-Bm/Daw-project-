@@ -254,3 +254,247 @@ document.addEventListener("DOMContentLoaded", () => {
   restoreFromSession();
   watchFormSubmit();
 });
+
+/*partie t3 trainers*/
+
+
+const TRAINERS = [
+  {
+    name: "Ahmed BenAli",
+    photo: "photo1.jpg",
+    specialty: "BodyBuilding",
+    experience: "5 Years",
+    bio: "Ahmed specializes in strength training and muscle building with personalized programs.",
+    schedule: "Monday & Wednesday 10:00 - 12:00"
+  },
+  {
+    name: "Sarah Mahmoud",
+    photo: "photo_2.jpg",
+    specialty: "Yoga",
+    experience: "3 Years",
+    bio: "Sarah guides members through mindful yoga sessions focused on flexibility and inner balance.",
+    schedule: "Tuesday 14:00 - 16:00"
+  },
+  {
+    name: "Oussama BenYahia",
+    photo: "photo_3.jpg",
+    specialty: "Cardio Training",
+    experience: "4 Years",
+    bio: "Oussama designs high-energy cardio programs to improve endurance and burn calories.",
+    schedule: "Tuesday 18:30 - 20:30"
+  },
+  {
+    name: "Karim BenYahia",
+    photo: "photo_4.jpg",
+    specialty: "CrossFit",
+    experience: "6 Years",
+    bio: "Karim leads intense CrossFit sessions for all levels, pushing members to their best.",
+    schedule: "Monday 13:00 - 16:00"
+  },
+  {
+    name: "Amira BenAli",
+    photo: "photo_5.jpg",
+    specialty: "Personal Training",
+    experience: "7 Years",
+    bio: "Amira crafts tailored personal training plans to help members reach their individual goals.",
+    schedule: "Sunday & Thursday 09:00 - 11:00"
+  },
+  {
+    name: "Yasmine BenAli",
+    photo: "photo_6.jpg",
+    specialty: "Pilates",
+    experience: "2 Years",
+    bio: "Yasmine focuses on core strength and posture improvement through Pilates techniques.",
+    schedule: "Wednesday 10:00 - 12:00"
+  }
+];
+
+function buildSearchBar() {
+  const section = document.getElementById("trainers");
+  if (!section) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.id = "search-wrapper";
+  wrapper.innerHTML = `<input type="text" id="trainer-search" placeholder="Search by name or specialty...">`;
+
+  const h2 = section.querySelector("h2");
+  h2.insertAdjacentElement("afterend", wrapper);
+
+  document.getElementById("trainer-search").addEventListener("input", filterTrainers);
+}
+
+function filterTrainers() {
+  const query = document.getElementById("trainer-search").value.toLowerCase().trim();
+  const cards = document.querySelectorAll(".trainer-card");
+  let found = 0;
+
+  cards.forEach((card) => {
+    const figcaption = card.querySelector("figcaption");
+    const name = figcaption ? figcaption.textContent.toLowerCase() : "";
+    const specialtyEl = card.querySelector("p");
+    const specialty = specialtyEl ? specialtyEl.textContent.toLowerCase() : "";
+
+    if (name.includes(query) || specialty.includes(query)) {
+      card.style.display = "";
+      found++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  let noResult = document.getElementById("no-trainers-msg");
+  if (found === 0) {
+    if (!noResult) {
+      noResult = document.createElement("p");
+      noResult.id = "no-trainers-msg";
+      noResult.textContent = "No trainers found.";
+      document.querySelector(".trainer-grid").insertAdjacentElement("afterend", noResult);
+    }
+    noResult.style.display = "";
+  } else {
+    if (noResult) noResult.style.display = "none";
+  }
+}
+
+function buildModal() {
+  if (document.getElementById("trainer-modal")) return;
+
+  const modal = document.createElement("div");
+  modal.id = "trainer-modal";
+  modal.innerHTML = `
+    <div id="modal-overlay"></div>
+    <div id="modal-box">
+      <button id="modal-close">✕</button>
+      <img id="modal-photo" src="" alt="">
+      <h3 id="modal-name"></h3>
+      <p id="modal-specialty"></p>
+      <p id="modal-experience"></p>
+      <p id="modal-bio"></p>
+      <p id="modal-schedule"></p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const style = document.createElement("style");
+  style.textContent = `
+    #trainer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+    }
+    #trainer-modal.open { display: block; }
+    #modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    #modal-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    #modal-close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #F04A4A;
+    }
+    #modal-close:hover { color: #BA3434; }
+    #modal-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #FF8F03;
+    }
+    #modal-box h3 {
+      color: #FF8F03;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    #modal-box p {
+      font-size: 15px;
+      margin: 6px 0;
+      color: #333;
+    }
+    #modal-schedule {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #E56950;
+    }
+    #search-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    #trainer-search {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 15px;
+      border: 2px solid #FF8F03;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+    #trainer-search:focus {
+      box-shadow: 0 4px 12px #E56950;
+    }
+    #no-trainers-msg {
+      text-align: center;
+      color: #F04A4A;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .trainer-card { cursor: pointer; }
+  `;
+  document.head.appendChild(style);
+
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+  document.getElementById("modal-overlay").addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+}
+
+function openModal(trainer) {
+  document.getElementById("modal-photo").src          = trainer.photo;
+  document.getElementById("modal-photo").alt          = trainer.name;
+  document.getElementById("modal-name").textContent   = trainer.name;
+  document.getElementById("modal-specialty").textContent  = "Specialty: " + trainer.specialty;
+  document.getElementById("modal-experience").textContent = "Experience: " + trainer.experience;
+  document.getElementById("modal-bio").textContent    = trainer.bio;
+  document.getElementById("modal-schedule").textContent   = "Schedule: " + trainer.schedule;
+  document.getElementById("trainer-modal").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("trainer-modal").classList.remove("open");
+}
+
+function bindTrainerCards() {
+  const cards = document.querySelectorAll(".trainer-card");
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => openModal(TRAINERS[index]));
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("trainers")) {
+    buildSearchBar();
+    buildModal();
+    bindTrainerCards();
+  }
+});
